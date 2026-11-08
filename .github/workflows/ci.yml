@@ -38,3 +38,11 @@ jobs:
         with:
           name: junit-report-${{ matrix.shard }}
           path: report-${{ matrix.shard }}.xml
+          
+    docker-tests:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t ci-practice-tests .
+      - run: docker run --rm ci-practice-tests
