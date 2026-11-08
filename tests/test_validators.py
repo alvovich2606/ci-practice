@@ -1,7 +1,5 @@
 import pytest
-
 from app.validators import is_adult, is_valid_email, normalize_phone
-
 
 @pytest.mark.parametrize("email, expected", [
     ("student@college.ru", True),
